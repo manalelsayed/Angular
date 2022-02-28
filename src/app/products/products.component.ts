@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ICategory } from '../Shared Classes and types/Icategory';
+import { ICategory ,DiscountOffers} from '../Shared Classes and types/Icategory';
 import { Iproduct } from '../Shared Classes and types/IProduct';
 @Component({
   selector: 'app-products',
@@ -12,7 +12,8 @@ export class ProductsComponent implements OnInit {
   constructor() {
     this.Discount=DiscountOffers['No Discount'],
     this.storeName="manalStore",
-    this.storeLogo="wes.png",
+    this.storeLogo="../../assets/images/favicon.ico",
+  
     this.productList=[{
       Id: 1,
       Name: "a",

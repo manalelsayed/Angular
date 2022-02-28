@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   constructor() { }
-  srcProp:string="header/app/assets/wes.PNG";
+  srcProp:string="../../assets/images/wes.PNG";
+  width:string="200";
+  height:string="200";
   ngOnInit(): void {
   }
 
