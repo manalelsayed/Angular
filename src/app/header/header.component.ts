@@ -9,8 +9,8 @@ export class HeaderComponent implements OnInit {
 
   constructor() { }
   srcProp:string="../../assets/images/wes.PNG";
-  width:string="200";
-  height:string="200";
+  width:string="300";
+  height:string="100";
   ngOnInit(): void {
   }
 
