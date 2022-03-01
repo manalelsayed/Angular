@@ -39,7 +39,10 @@ export class ProductsComponent implements OnInit {
   CategoryList=new Array<ICategory>();
   ClientName:string="";
   IsPurshased:boolean;
+  isShown:boolean=false;
   ngOnInit(): void {
   }
-
+  hideTable ():void{
+    this.isShown=!this.isShown;
+  }
 }

@@ -1,4 +1,38 @@
-<p>products works!</p>
-<h1>{{storeName}}</h1>
+<h1>{{storeName | lowercase}}</h1>
 <img [src]="storeLogo"><br>
-{{"We offer an explicit discount of:" + Discount }}
+<h3 *ngif="Discount">We offer an explicit discount of: {{ Discount | percent}}</h3>
+<hr>
+<select>
+    <option *ngFor="let c of CategoryList">{{c.Name}}</option>
+</select>
+<hr>
+<div *ngIf="isShown; then thenBlock;"> 
+
+<table  border="5px" cellPadding="10px" cellSpacing="1px" >
+    <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Img</th>
+    </thead>
+    <tbody *ngFor="let r of productList">
+        <tr>
+            <td>{{r.Id}}</td>
+            <td>{{r.Name}}</td>
+            <td>{{r.Quantity}}</td>
+            <td>{{r.Price}}</td>
+            <td>{{r.Img}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<ng-template #thenBlock>
+<div style="background-color:red "><h2>“Thanks for purchasing from our Store” {{ClientName }} {{isShown}}</h2>  </div>
+</ng-template>
+<hr>
+<input [(ngModel)]="ClientName" type="text" > {{ClientName}}
+<hr>
+<button value="hideTable" (click)="hideTable()">Hide Table</button>
+
+
