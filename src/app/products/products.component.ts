@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductServiceService } from '../services/product-service.service';
 import { ICategory ,DiscountOffers} from '../Shared Classes and types/Icategory';
 import { Iproduct } from '../Shared Classes and types/IProduct';
 @Component({
@@ -9,25 +10,12 @@ import { Iproduct } from '../Shared Classes and types/IProduct';
 
 export class ProductsComponent implements OnInit {
 
-  constructor() {
+  constructor(private productServ:ProductServiceService) {
     this.Discount=DiscountOffers['No Discount'],
     this.storeName="manalStore",
     this.storeLogo="../../assets/images/favicon.ico",
   
-    this.productList=[{
-      Id: 1,
-      Name: "a",
-      Quantity: 5,
-      Price: 300,
-      Img: "wes.png"
-    },
-    {
-      Id: 2,
-      Name: "b",
-      Quantity: 5,
-      Price: 300,
-      Img: "wes.png"
-    }],
+    
     this.CategoryList=[{Id:1 , Name:"typeA"},{Id:2 , Name:"typeB"}],
     this.ClientName="client",
     this.IsPurshased=false
@@ -44,5 +32,9 @@ export class ProductsComponent implements OnInit {
   }
   hideTable ():void{
     this.isShown=!this.isShown;
+  }
+
+  renderValues(){
+    this.productList=this.productServ.GetAllProducts();
   }
 }
