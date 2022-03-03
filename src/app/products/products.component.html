@@ -6,9 +6,9 @@
     <option *ngFor="let c of CategoryList">{{c.Name}}</option>
 </select>
 <hr>
-<div *ngIf="isShown; then thenBlock;"> 
 
-<table  border="5px" cellPadding="10px" cellSpacing="1px" >
+
+<table  border="5px" cellPadding="10px" cellSpacing="1px" *ngIf="isShown">
     <thead>
         <th>ID</th>
         <th>Name</th>
@@ -26,13 +26,13 @@
         </tr>
     </tbody>
 </table>
-</div>
-<ng-template #thenBlock>
-<div style="background-color:red "><h2>“Thanks for purchasing from our Store” {{ClientName }} {{isShown}}</h2>  </div>
-</ng-template>
+
+<div style="background-color:red " *ngIf="!isShown">
+    <h2>“Thanks for purchasing from our Store” {{ClientName }} {{isShown}}</h2>  </div>
+
 <hr>
 <input [(ngModel)]="ClientName" type="text" > {{ClientName}}
 <hr>
-<button value="hideTable" (click)="hideTable()">Hide Table</button>
-
+<button value="hideTable" (click)="hideTable()" (click)="renderValues()">Hide Table</button>
+<button (click)="renderValues()">Click to send data to parent</button>
 

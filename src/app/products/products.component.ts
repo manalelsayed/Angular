@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ProductServiceService } from '../services/product-service.service';
 import { ICategory ,DiscountOffers} from '../Shared Classes and types/Icategory';
 import { Iproduct } from '../Shared Classes and types/IProduct';
@@ -33,8 +33,9 @@ export class ProductsComponent implements OnInit {
   hideTable ():void{
     this.isShown=!this.isShown;
   }
-
-  renderValues(){
+   renderValues(){
     this.productList=this.productServ.GetAllProducts();
+
   }
+
 }
